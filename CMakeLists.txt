@@ -37,14 +37,15 @@ endif()
 orocos_install_headers(DIRECTORY include/${PROJECT_NAME})
 
 if(${OROCOS_TARGET} STREQUAL "xenomai" )
-catkin_package(
-  INCLUDE_DIRS ${ETHERLAB_INCLUDE_DIR}
-  LIBRARIES ${ETHERCAT_LIBRARY_RTDM})
+  catkin_package(
+    INCLUDE_DIRS ${ETHERLAB_INCLUDE_DIR}
+    LIBRARIES ${ETHERCAT_LIBRARY_RTDM})
 else()
-catkin_package(
-  INCLUDE_DIRS ${ETHERLAB_INCLUDE_DIR}
-  LIBRARIES ${ETHERCAT_LIBRARY})
+  catkin_package(
+    INCLUDE_DIRS ${ETHERLAB_INCLUDE_DIR}
+    LIBRARIES ${ETHERCAT_LIBRARY})
 endif()
+
 # Export package information (replaces catkin_package() macro) 
 orocos_generate_package(
   INCLUDE_DIRS include
