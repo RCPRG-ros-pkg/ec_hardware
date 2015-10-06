@@ -30,6 +30,8 @@
 
 #include "ECConfig.h"
 
+#include <rtt/Logger.hpp>
+
 ECConfig::ECConfig() {
 }
 
@@ -75,7 +77,7 @@ bool ECConfig::parse(const std::string &input) {
     }
     return true;
   } catch (std::exception& e) {
-    std::cout << e.what() << std::endl;
+    RTT::log(RTT::Error) << e.what() << RTT::endlog();
     return false;
   }
 }
@@ -90,14 +92,14 @@ bool ECDomainConfig::parse(const YAML::Node &node) {
   if (node["period"]) {
     period_ = node["period"].as<unsigned int>();
   } else {
-    std::cout << "domain missing period fild" << std::endl;
+    RTT::log(RTT::Error) << "domain missing period field" << RTT::endlog();
     return false;
   }
 
   if (node["name"]) {
     name_ = node["name"].as<std::string>();
   } else {
-    std::cout << "domain missing name filed" << std::endl;
+    RTT::log(RTT::Error) << "domain missing name field" << RTT::endlog();
     return false;
   }
 
@@ -113,7 +115,7 @@ bool ECDomainConfig::parse(const YAML::Node &node) {
       }
     }
   } else {
-    std::cout << "domain missing name fild" << std::endl;
+    RTT::log(RTT::Error) << "domain missing name field" << RTT::endlog();
     return false;
   }
   return true;
@@ -129,21 +131,21 @@ bool ECTerminalConfig::parse(const YAML::Node &node) {
   if (node["name"]) {
     name_ = node["name"].as<std::string>();
   } else {
-    std::cout << "missing terminal name" << std::endl;
+    RTT::log(RTT::Error) << "missing terminal name" << RTT::endlog();
     return false;
   }
 
   if (node["vendor_id"]) {
     vendor_id_ = node["vendor_id"].as<int>();
   } else {
-    std::cout << "missing terminal vendor_id" << std::endl;
+    RTT::log(RTT::Error) << "missing terminal vendor_id" << RTT::endlog();
     return false;
   }
 
   if (node["device_id"]) {
     device_id_ = node["device_id"].as<int>();
   } else {
-    std::cout << "missing terminal device_id" << std::endl;
+    RTT::log(RTT::Error) << "missing terminal device_id" << RTT::endlog();
     return false;
   }
 
@@ -156,7 +158,7 @@ bool ECTerminalConfig::parse(const YAML::Node &node) {
   if (node["station_offset"]) {
     station_offset_ = node["station_offset"].as<int>();
   } else {
-    std::cout << "missing terminal station_offset" << std::endl;
+    RTT::log(RTT::Error) << "missing terminal station_offset" << RTT::endlog();
     return false;
   }
 
