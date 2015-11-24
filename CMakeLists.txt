@@ -34,7 +34,9 @@ endif()
 
 # Generate install targets for header files
 
-orocos_install_headers(DIRECTORY include/${PROJECT_NAME})
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
 
 if(${OROCOS_TARGET} STREQUAL "xenomai" )
   catkin_package(
