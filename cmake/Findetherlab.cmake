@@ -15,6 +15,7 @@ find_path(ETHERLAB_INCLUDE_DIR ecrt.h
           /usr/local/include/
           /usr/include/
           /opt/etherlab/
+          /mnt/opt/etherlab/
           ${ETHERLAB_DIR}/include/)
 
 # find the etherlab library
@@ -24,6 +25,7 @@ find_library(ETHERCAT_LIBRARY
              PATHS  /usr/local
                     /usr
                     /opt/etherlab
+                    /mnt/opt/etherlab/
                     /opt
                     ${YAMLCPP_DIR}/lib)
 
@@ -33,6 +35,7 @@ find_library(ETHERCAT_LIBRARY_RTDM
              PATHS  /usr/local
                     /usr
                     /opt/etherlab
+                    /mnt/opt/etherlab/
                     /opt
                     ${YAMLCPP_DIR}/lib)
 
