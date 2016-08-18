@@ -62,7 +62,7 @@ class ECTerminalConfig {
 
   std::vector<ec_pdo_info_t> tpdo_;
   std::vector<ec_pdo_info_t> rpdo_;
- private:
+
   bool parsePDO(const YAML::Node &node, ec_pdo_info_t* pdo);
   bool parsePDOEntry(const YAML::Node &node, ec_pdo_entry_info_t* pdo);
   std::vector<std::vector<ec_pdo_entry_info_t>* > pdo_entries_;
