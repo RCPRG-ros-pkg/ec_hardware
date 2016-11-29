@@ -28,15 +28,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef ECCONFIG_H
-#define ECCONFIG_H
+#ifndef ECCONFIG_H_
+#define ECCONFIG_H_
+
+#include <yaml-cpp/yaml.h>
+#include <ecrt.h>
 
 #include <string>
 #include <vector>
 
-#include <yaml-cpp/yaml.h>
-
-#include <ecrt.h>
 
 class ECDriverConfig {
  public:
@@ -88,4 +88,4 @@ class ECConfig {
   std::vector<ECDomainConfig> domains_;
 };
 
-#endif  // ECCONFIG_H
+#endif  // ECCONFIG_H_
